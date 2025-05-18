@@ -12,9 +12,9 @@ $categoryResult = $conn->query("SELECT id, name FROM categories");
 ?>
 
 <div class='flex w-[100%] justify-items-between gap-24 px-[13rem] font-[poppins] mt-24'>
-  <div class="flex flex-col w-[25%] bg-green-50 text-black rounded-lg h-full pl-5">
+  <div class="flex flex-col w-[25%] bg-green-50 text-black rounded-lg h-full pl-5 py-5">
     <div class='flex flex-col'>
-      <h2 class="text-xl font-bold">Cari Produk</h2>
+      <h2 class="text-xl font-bold">Keyword</h2>
       <!-- Input search untuk nama produk -->
       <input type="text" id="searchInput" placeholder="Search here..." class="text-black max-w-[90%] border-2 border-gray-300 rounded-lg p-3 mb-2">
     </div>
@@ -42,8 +42,7 @@ $categoryResult = $conn->query("SELECT id, name FROM categories");
           <input type="checkbox" class="filter-category" value="<?= $row['id'] ?>"> <?= htmlspecialchars($row['name']) ?>
         </label>
       <?php endwhile; ?>
-    </div>
-    <hr>
+      </div>
   </div>
   <div class="flex flex-col w-[75%] gap-2">
     <h2>Daftar Produk</h2>

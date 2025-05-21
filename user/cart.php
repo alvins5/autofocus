@@ -21,9 +21,9 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC); // Ambil semua data sebagai array as
 ?>
 
 <!-- Bagian tampilan -->
-<div class="flex w-screen h-screen justify-center gap-2 mt-10">
+<div class="flex w-screen h-screen justify-center gap-2 mt-10 pr-3">
 
-  <div class="flex flex-col border-2 border-gray-300 rounded-lg p-4 w-[60%] bg-gray-300 gap-2 h-fit">
+  <div class="flex flex-col border-2 border-gray-300 rounded-lg p-4 w-[55%] bg-gray-300 gap-2 h-fit">
     <?php foreach ($items as $item) : ?>
       <?php
       // Ambil ID produk dan stok maksimum dari array $item
@@ -96,7 +96,7 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC); // Ambil semua data sebagai array as
     $totalPayment = $subtotal; 
   ?>
 
-  <div class="border w-[20%] h-fit flex flex-col justify-between p-4 bg-gray-300 rounded-xl">
+  <div class="border w-[15%] h-fit flex flex-col justify-between p-4 bg-gray-300 rounded-xl">
     <h2>Order Detail</h2>
     <div class="flex flex-col gap-4 my-auto mt-5 pt-5 bg-emerald-50 text-gray-950 p-2 rounded-lg">
       <div class='flex justify-between'>

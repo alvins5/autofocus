@@ -13,7 +13,7 @@ $categoryIds = isset($_GET['categories']) && $_GET['categories'] !== '' ? explod
 // Keyword pencarian produk berdasarkan nama produk, default kosong
 $search = isset($_GET['q']) ? $_GET['q'] : '';
 // Filter harga dikirim sebagai string rentang harga yang dipilih, contoh: "20000-100000,100000-200000"
-$priceRanges = isset($_GET['prices']) && $_GET['prices'] !== '' ? explode(',', $_GET['prices']) : [];
+$priceIds = isset($_GET['prices']) && $_GET['prices'] !== '' ? explode(',', $_GET['prices']) : [];
 
 // Siapkan array untuk kondisi WHERE dan array untuk parameter prepared statement
 $where = [];
@@ -45,25 +45,18 @@ if (!empty($search)) {
 }
 
 // Filter harga rentang (bisa lebih dari satu rentang, harus digabung dengan OR)
-if (!empty($priceRanges)) {
-    // Setiap rentang harga formatnya "min-max"
-    $priceWhereParts = [];
-    foreach ($priceRanges as $range) {
-        // Pisahkan min dan max harga
-        $parts = explode('-', $range);
-        if (count($parts) == 2) {
-            $min = (int)$parts[0];
-            $max = (int)$parts[1];
-            // Siapkan kondisi BETWEEN ? AND ?
-            $priceWhereParts[] = "(products.price BETWEEN ? AND ?)";
-            $params[] = $min;
-            $params[] = $max;
-            $types .= 'ii';
+if (!empty($priceIds) && !in_array('1', $priceIds)) { // '1' = Semua Harga, jadi skip filter jika ada '1'
+    $priceWhere = [];
+    foreach ($priceIds as $pid) {
+        switch ($pid) {
+            case '2': $priceWhere[] = "(products.price >= 20000 AND products.price <= 100000)"; break;
+            case '3': $priceWhere[] = "(products.price > 100000 AND products.price <= 200000)"; break;
+            case '4': $priceWhere[] = "(products.price > 200000 AND products.price <= 400000)"; break;
+            case '5': $priceWhere[] = "(products.price > 400000)"; break;
         }
     }
-    // Gabungkan semua rentang harga dengan OR dalam kurung
-    if ($priceWhereParts) {
-        $where[] = "(" . implode(' OR ', $priceWhereParts) . ")";
+    if ($priceWhere) {
+        $where[] = '(' . implode(' OR ', $priceWhere) . ')';
     }
 }
 

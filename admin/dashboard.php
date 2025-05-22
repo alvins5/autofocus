@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
     exit;
 }
 
-include __DIR__ . '/../header/header-fixed-logined.php';
+include __DIR__ . '/../header/header-fixed-logined-admin.php';
 ?>
 
     <div id="home" class="main-content container mx-auto mt-8 relative px-4">

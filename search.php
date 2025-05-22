@@ -61,20 +61,17 @@ if (!empty($priceIds) && !in_array('1', $priceIds)) { // '1' = Semua Harga, jadi
 }
 
 // SQL dasar mengambil data produk beserta nama kategori dan brand-nya
-$sql = "
-    SELECT products.id, products.name, products.price,
-           categories.name AS category_name,
-           brands.name AS brand_name,
-           products.image AS image_url
-    FROM products
-    LEFT JOIN categories ON products.category_id = categories.id
-    LEFT JOIN brands ON products.brand_id = brands.id
-";
-
-// Jika ada kondisi WHERE, gabungkan dengan AND
+$whereSql = '';
 if (!empty($where)) {
-    $sql .= " WHERE " . implode(' AND ', $where);
+    $whereSql = 'WHERE ' . implode(' AND ', $where);
 }
+
+$sql = "SELECT products.id, products.name, products.price, products.image, products.stock, categories.name AS category_name, brands.name AS brand_name
+        FROM products
+        LEFT JOIN categories ON products.category_id = categories.id
+        LEFT JOIN brands ON products.brand_id = brands.id
+        $whereSql
+        ORDER BY products.id DESC";
 
 // Siapkan prepared statement
 $stmt = $conn->prepare($sql);

@@ -57,9 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 include __DIR__ . '/../header/header-fixed.php';
-include __DIR__ . '/../header/header-floating.php';
 ?>
-<div class="flex flex-col items-center justify-center h-[25rem] mb-[5.4rem] mt-[10rem]">
+<div class="flex flex-col items-center justify-center h-[25rem] mb-[11rem] mt-[13rem]">
     <div class="flex w-[27rem] flex-col justify-between bg-white p-5 h-[25rem] items-center rounded-3xl p-10 font-[poppins]" >
         <h2 class="flex text-2xl font-bold text-black pt-5 uppercase">Login</h2>
         <?php
@@ -72,11 +71,11 @@ include __DIR__ . '/../header/header-floating.php';
             unset($_SESSION['success']);
         }
         ?>
-        <form method="POST" action="/login" class="flex flex-col justify-center items-center font-[poppins] text-gray-600 gap-4">
-            <div class="flex flex-col">
+        <form method="POST" action="/login" class="flex flex-col justify-center items-center font-[poppins] text-gray-600 gap-7 px-10 w-full">
+            <div class="flex flex-col w-full ">
                 <input class="rounded-md bg-gray-200 text-between p-2" type="text" name="username" placeholder="Username" required>
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col w-full">
                 <input class="rounded-md bg-gray-200 text-between p-2" type="password" name="password" placeholder="Password" required>
             </div>
             <div class="text-lg flex text-gray-100 mt-[1.5rem] border-2 bg-zinc-800 w-[5rem] h-[2.5rem] px-auto item-center justify-center rounded-lg">

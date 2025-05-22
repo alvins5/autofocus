@@ -44,6 +44,12 @@ $total = 0;
                 <p>COD</p>
                 <p>Ambil di Tempat</p>
             </div>
+            <label for="pickup_date">Tanggal Ambil:</label>
+            <input type="date" name="pickup_date" id="pickup_date" required>
+            <label for="pickup_time">Jam Ambil:</label>
+            <input type="time" name="pickup_time" id="pickup_time" required>
+            <label for="rental_length">Lama Pinjam (hari):</label>
+            <input type="number" name="rental_length" id="rental_length" min="1" required>
             <button type="submit">Konfirmasi Order</button>
         </div>
         

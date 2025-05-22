@@ -62,7 +62,7 @@ session_start();
             </nav>
         </div>
         <div class="px-4 bg-green-500">
-            <nav class="flex items-center justify-between w-full h-[4rem] px-[12.5rem]">
+            <nav class="flex items-center justify-between w-full h-[3.2rem] px-[12.5rem]">
                 <div class="flex items-center gap-10 font-[poppins] font-small">
                     <a href="/product">
                         PRODUCT
@@ -74,32 +74,26 @@ session_start();
                             CONTACT
                         </a>
                 </div>
-                <div class="flex gap-3">
-                    <a href="../user/cart.php"
-                        class="flex item-center justify-center p-[0.6rem] button w-fit h-[2.5rem] bg-teal-700 rounded-xl gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
-                            <circle cx="8" cy="21" r="1" />
-                            <circle cx="19" cy="21" r="1" />
-                            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-                        </svg>
-                        <h1 class="font-[poppins] font-small">
-                            CART
-                        </h1>
-                    </a>
-                    <a href="../user/order_history.php"
-                        class="flex item-center justify-center p-[0.6rem] button w-fit h-[2.5rem] bg-teal-700 rounded-xl gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history-icon lucide-history">
-                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                            <path d="M3 3v5h5" />
-                            <path d="M12 7v5l4 2" />
-                        </svg>
-                        <h1 class="font-[poppins] font-small">
-                            history
-                        </h1>
-                    </a>
-                </div>
+                <a href="../user/cart.php"
+                    class="flex item-center justify-center p-[0.6rem] button w-[5rem] h-[2.5rem] bg-teal-700 rounded-xl gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-shopping-cart-icon lucide-shopping-cart">
+                        <circle cx="8" cy="21" r="1" />
+                        <circle cx="19" cy="21" r="1" />
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                    </svg>
+                    <h1 class="font-[poppins] font-small">
+                        CART
+                    </h1>
+                </a>
+                <a href="../user/order_history.php"
+                    class="flex item-center justify-center p-[0.6rem] button w-[5rem] h-[2.5rem] bg-teal-700 rounded-xl gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history-icon lucide-history"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+                    <h1 class="font-[poppins] font-small">
+                        history
+                    </h1>
+                </a>
             </nav>
         </div>
     </div>

@@ -17,7 +17,7 @@ if (isset($_SESSION['user_id'])) {
 $brandResult = $conn->query("SELECT id, name FROM brands");
 $categoryResult = $conn->query("SELECT id, name FROM categories");
 ?>
-<div class='flex-col px-[13rem]'>
+<div class='flex-col px-[13rem] pt-4'>
 
   <!-- Tempat menampilkan hasil pencarian dan jumlah -->
   <div id="searchInfo" class="mb-2 text-lg font-semibold text-white"></div>
@@ -41,7 +41,7 @@ $categoryResult = $conn->query("SELECT id, name FROM categories");
       </div>
       <?php while ($row = $brandResult->fetch_assoc()): ?>
         <label class="w-full relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
-          <input type="checkbox" class="filter-brand text-black relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full" value="<?= $row['id'] ?>">
+          <input type="checkbox" class="filter-brand" value="<?= $row['id'] ?>">
           <?= htmlspecialchars($row['name']) ?>
         </label>
       <?php endwhile; ?>
@@ -53,7 +53,7 @@ $categoryResult = $conn->query("SELECT id, name FROM categories");
         <h3 class="text-xl font-bold">Filter Kategori</h3>
       </div>
       <?php while ($row = $categoryResult->fetch_assoc()): ?>
-        <label>
+        <label class="w-full relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full">
           <input type="checkbox" class="filter-category" value="<?= $row['id'] ?>"> <?= htmlspecialchars($row['name']) ?>
         </label>
       <?php endwhile; ?>
@@ -62,11 +62,11 @@ $categoryResult = $conn->query("SELECT id, name FROM categories");
     <!-- Filter Harga -->
     <div class='flex flex-col gap-4 mt-4'>
       <h3 class="text-xl font-bold">Filter Harga</h3>
-      <label><input type="checkbox" class="filter-price" value="1"> Semua Harga</label>
-      <label><input type="checkbox" class="filter-price" value="2"> 20k - 100k</label>
-      <label><input type="checkbox" class="filter-price" value="3"> 100k - 200k</label>
-      <label><input type="checkbox" class="filter-price" value="4"> 200k - 400k</label>
-      <label><input type="checkbox" class="filter-price" value="5"> > 400k</label>
+      <label class="w-full relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"><input type="checkbox" class="filter-price" value="1"> Semua Harga</label>
+      <label class="w-full relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"><input type="checkbox" class="filter-price" value="2"> 20k - 100k</label>
+      <label class="w-full relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"><input type="checkbox" class="filter-price" value="3"> 100k - 200k</label>
+      <label class="w-full relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"><input type="checkbox" class="filter-price" value="4"> 200k - 400k</label>
+      <label class="w-full relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"><input type="checkbox" class="filter-price" value="5"> > 400k</label>
     </div>
   </div>
 
@@ -130,12 +130,13 @@ function renderProducts(products) {
     div.innerHTML = `
       <div class="flex text-black gap-4 container mx-auto bg-green-50 w-full justify-between">
         <div class="flex flex-col gap-2 w-[20%]">
-          <img src="../uploads/${p.image_url}" alt="image" class="max-w-full w-full h-full rounded-lg">
+          <img src="../uploads/${p.image}" alt="image" class="max-w-full w-full h-full rounded-lg">
         </div>
         <div class='flex flex-col gap-6 w-[65%]'>
           <h3 class='font-bold text-lg'>${p.name}</h3>
           <p>Kategori: ${p.category_name ?? '-'}</p>
           <p>Brand: ${p.brand_name ?? '-'}</p>
+          <p class='text-red-700 font-semibold'>Sisa stok: ${p.stock ?? 0}</p>
         </div>
         <form action="../user/add_to_cart.php" method="POST" class="flex flex-col justify-normal items-end w-[15%] gap-4">
           <p class='font-bold text-xl'>Rp${parseInt(p.price).toLocaleString('id-ID')}</p>  

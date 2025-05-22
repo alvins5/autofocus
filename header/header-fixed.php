@@ -16,28 +16,28 @@
 </head>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const floating = document.getElementById('floating');
-    const fixed = document.getElementById('fixed');
-    if (floating && fixed) {
-        window.addEventListener("scroll", function() {
-            if (window.scrollY > 80) {
-                floating.classList.add('opacity-100');
-                floating.classList.remove('opacity-0');
-                // floating.classList.add('block');
-                fixed.classList.add('-translate-y-full');
-            } else {
-                // floating.classList.remove('block');
-                floating.classList.add('opacity-0');
-                floating.classList.remove('opacity-100')
-                fixed.classList.remove('-translate-y-full');
-            }
-        });
-    }
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     const floating = document.getElementById('floating');
+//     const fixed = document.getElementById('fixed');
+//     if (floating && fixed) {
+//         window.addEventListener("scroll", function() {
+//             if (window.scrollY > 80) {
+//                 floating.classList.add('opacity-100');
+//                 floating.classList.remove('opacity-0');
+//                 // floating.classList.add('block');
+//                 fixed.classList.add('-translate-y-full');
+//             } else {
+//                 // floating.classList.remove('block');
+//                 floating.classList.add('opacity-0');
+//                 floating.classList.remove('opacity-100')
+//                 fixed.classList.remove('-translate-y-full');
+//             }
+//         });
+//     }
+// });
 </script>
 <body class="min-h-screen max-w-screen">
-    <div id="fixed" class="transition-all duration-[100ms] z-[10] ease-in-out fixed w-screen">
+    <div id="fixed" class="sticky transition-all duration-[100ms] z-[100] ease-in-out fixed w-screen top-0">
         <div class=" top-0 bg-zinc-800 shadow-lg flex items-center justify-between p-4 px-[10rem]">
             <nav class="flex items-center justify-between w-full">
                 <a href="/" class="flex items-center">
